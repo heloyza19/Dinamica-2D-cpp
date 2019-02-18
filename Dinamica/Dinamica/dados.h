@@ -5,12 +5,12 @@ class dados
 {
 
 private:
-	int size;
-	node** elem;
-	double** Fext;
-	double** Fcont;
-	double** Vel;
-	double** CM;
+	int Nc;         //numero de elementos
+	node** corpo;	//coodenadas dos vertices de cada corpo
+	double** Fext;  //[Fx Fy] externa de cada corpo
+	double** Fcont;  //[Fx Fy] de contato de cada corpo
+	double** Vel;	//[Vx Vy] de cada corpo	
+	double** CM;    //[Xcm Ycm] de cada corpo
 
 
 	double* torque;
@@ -19,10 +19,10 @@ private:
 
 public:
 
-	dados(int Ne);   //Ne= numero de elementos
+	dados(int Nc);   //Ne= numero de elementos
 	void print();
-	void setelem(int n, node &P);
-	int getsize();
+	void setcorpo(int n, node &P);
+	int getNc();
 
 	void setCM();
 

@@ -151,9 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cabeçalho.h" />
     <ClInclude Include="dados.h" />
+    <ClInclude Include="momento.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="setCM.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dados.cpp" />

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "dados.h"
+#include "setCM.h"
 #include <iostream>
 
 
@@ -7,8 +8,8 @@ using namespace std;
 
 dados::dados(int Ne)
 {
-	elem=new node* [Ne];   //verificar
-	size = Ne;
+	corpo=new node* [Ne];   //verificar
+	Nc = Ne;
 
 	Fext = new double*[Ne];
 	Fcont = new double*[Ne];
@@ -32,18 +33,18 @@ dados::dados(int Ne)
 	}
 }
 
-void dados::setelem(int n, node &P)
+void dados::setcorpo(int n, node &P)
 {
-	if (n < size)
+	if (n < Nc)
 	{
-	elem[n] = &P;
+	corpo[n] = &P;
 }
 
 }
 
-int dados::getsize()
+int dados::getNc()
 {
-	return size;
+	return Nc;
 
 }
 
@@ -54,7 +55,7 @@ void dados::print()
 	cout << "Dados: "<<endl;
 	cout << "Fext=" << endl;
 
-for (int i = 0; i < size; i++)
+for (int i = 0; i < Nc; i++)
 {
 	cout << Fext[i][0] << " " << Fext[i][1] << endl;
 }
@@ -62,7 +63,7 @@ cout << endl;
 
 
 cout << "Fcont ="<<endl;
-for (int i = 0; i < size; i++)
+for (int i = 0; i < Nc; i++)
 {
 	cout << Fcont[i][0] << " " << Fcont[i][1] << endl;
 }
@@ -70,28 +71,28 @@ cout << endl;
 
 
 cout << "Vel ="<<endl;
-for (int i = 0; i < size; i++)
+for (int i = 0; i < Nc; i++)
 {
 	cout <<Vel[i][0] << " " << Vel[i][1] << endl;
 }
 cout << endl;
 
 cout << "CM= " << endl;
-for (int i = 0; i < size; i++)
+for (int i = 0; i < Nc; i++)
 {
 	cout << CM[i][0] << " " << CM[i][1] << endl;
 }
 cout << endl;
 
 cout << "torque= " << endl;
-for (int i = 0; i < size; i++)
+for (int i = 0; i < Nc; i++)
 {
 	cout << torque[i]<< " ";
 }
 cout << endl;
 
 cout << "massa= " << endl;
-for (int i = 0; i < size; i++)
+for (int i = 0; i < Nc; i++)
 {
 	cout << massa[i] <<" ";
 }
@@ -100,7 +101,7 @@ cout << endl;
 
 
 cout << "I= " << endl;
-for (int i = 0; i < size; i++)
+for (int i = 0; i < Nc; i++)
 {
 	cout << I[i] << " ";
 }
@@ -112,17 +113,7 @@ cout << endl;
 
 dados::~dados()
 {
-	delete[]elem;
+	delete[]corpo;
 }
 
 
-
-void dados::setCM()
-{
-
-
-
-
-
-
-}

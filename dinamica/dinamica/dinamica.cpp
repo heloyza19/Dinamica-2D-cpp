@@ -21,10 +21,11 @@ int main()
 	vertices.setponto(M);
 	
 	dados Dados(5);
-	Dados.setelem(1, vertices);
-	
-	Dados.print();
+	Dados.setcorpo(1, vertices);
+	Dados.setCM();
+	//Dados.print();
 
-
+	system("PAUSE");
+	return 0;
 }
 
