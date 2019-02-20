@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "dados.h"
-#include "setCM.h"
+
 #include <iostream>
 
 
@@ -8,7 +8,7 @@ using namespace std;
 
 dados::dados(int Ne)
 {
-	corpo=new node* [Ne];   //verificar
+	corpo=new node (Ne);   //verificar
 	Nc = Ne;
 
 	Fext = new double*[Ne];
@@ -33,11 +33,11 @@ dados::dados(int Ne)
 	}
 }
 
-void dados::setcorpo(int n, node &P)
+void dados::setcorpo(int n, node P)
 {
 	if (n < Nc)
 	{
-	corpo[n] = &P;
+	corpo[n] = P;
 }
 
 }

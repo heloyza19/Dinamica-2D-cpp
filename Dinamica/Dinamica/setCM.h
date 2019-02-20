@@ -1,13 +1,14 @@
 #pragma once
 #include "iostream"
 #include "dados.h"
+#include "matriz.h"
 
 using namespace std;
 
-double minimo(node* M, int c);
-double maximo(node* M, int c);
+double minimo(node M, int c);
+double maximo(node M, int c);
 
-void dados::setCM()
+void setCM(dados* D)
 {
 	int Mx = 0;       //contador momento em x
 	int My = 0;       //contador momento em y
@@ -19,37 +20,65 @@ void dados::setCM()
 	double dy = dx;      
 	double dA = dx * dy;
 
-	for (int i = 0; i < Nc; i++)
+	for (int i = 0; i < D->Nc; i++)
 
 	{
-		double Xmin = minimo(corpo[i],0);
-		cout << Xmin << endl;
-		double Xmax = maximo(corpo[i], 0);
-		cout << Xmax << endl;
+		double Xmin = minimo(D->corpo[i],0);
+		double Xmax = maximo(D->corpo[i], 0);
+		double Ymin = minimo(D->corpo[i], 1);
+		double Ymax = maximo(D->corpo[i], 1);
 
-		double Ymin = minimo(corpo[i], 1);
-		double Ymax = maximo(corpo[i], 1);
+		int nx = (Xmax - Xmin) / dx;
+		int ny = (Ymax - Ymin) / dy;
+		matriz *m_esp =new matriz (nx, ny);      //matriz da massa especifica
+		m_esp->ones();
+
+		//Fazer funcao da densidade
+		double x=0;
+		for (int i = 0; i < nx; i++)
+		{
+			x =Xmin + i * dx;
+
+			for (int j = 0; j < ny; j++)
+			{
+
+				My += My + x * m_esp->getM[i][j];
 
 
+			}
+
+		}
+
+		double y = 0;
+		for (int k = 0; k < ny; k++) 
+		{
+			y =Ymin + k * dy;
+
+			for (int l = 0; l < nx; l++)
+			{
+
+				Mx += Mx + y * m_esp->getM[l][k];
+
+		}
 
 
-
-
+		}
 
 	}
 
 }
 
 
-double minimo(node* M, int c)
+double minimo(node M, int c)
 {
-	double minimo = M->ponto[0][c];
+	double minimo = M.ponto[0][c];
+	cout << minimo << endl;
 	
-	for (int i = 1; i < M->size[0]; i++)
+	for (int i = 1; i < M.size[0]; i++)
 	{
-		if (M->ponto[i][c] < minimo)
+		if (M.ponto[i][c] < minimo)
 		{
-			minimo = M->ponto[i][c];
+			minimo = M.ponto[i][c];
 		}
 
 	}
@@ -58,16 +87,17 @@ double minimo(node* M, int c)
 	return minimo;
 }
 
-double maximo(node* M, int c)
+double maximo(node M, int c)
 {
-	double** pos = M->ponto;
-	double maximo = pos[0][c];
 
-	for (int i = 1; i < M->size[0]; i++)
+	double maximo = M.ponto[0][c];
+	cout << maximo << endl;
+
+	for (int i = 1; i < M.size[0]; i++)
 	{
-		if (pos[i][c] <maximo)
+		if (M.ponto[i][c] >maximo)
 		{
-			maximo = pos[i][c];
+			maximo = M.ponto[i][c];
 		}
 
 	}

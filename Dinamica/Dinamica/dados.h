@@ -4,9 +4,9 @@
 class dados
 {
 
-private:
+public:
 	int Nc;         //numero de elementos
-	node** corpo;	//coodenadas dos vertices de cada corpo
+	node* corpo;	//coodenadas dos vertices de cada corpo
 	double** Fext;  //[Fx Fy] externa de cada corpo
 	double** Fcont;  //[Fx Fy] de contato de cada corpo
 	double** Vel;	//[Vx Vy] de cada corpo	
@@ -17,14 +17,12 @@ private:
 	double* massa;
 	double* I;
 
-public:
-
 	dados(int Nc);   //Ne= numero de elementos
 	void print();
-	void setcorpo(int n, node &P);
+	void setcorpo(int n, node P);
 	int getNc();
-
-	void setCM();
+	
+	//void setCM();
 
 	~dados();
 
