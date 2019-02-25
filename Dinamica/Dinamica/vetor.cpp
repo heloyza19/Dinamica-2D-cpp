@@ -44,6 +44,29 @@ int vetor::getsize()
 	return Size;
 }
 
+void vetor::zeros()
+{
+	double* v = new double[Size];
+	for (int i = 0; i < Size; i++)
+	{
+		v[i] = 0;
+
+	}
+	this->setV(v);
+
+}
+
+void vetor::ones()
+{
+	double* v = new double[Size];
+	for (int i = 0; i < Size; i++)
+	{
+		v[i] = 1;
+
+	}
+	this->setV(v);
+
+}
 
 //Sobrecarga do igual
 void vetor::operator =(const vetor &A) //const

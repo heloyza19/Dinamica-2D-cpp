@@ -1,7 +1,8 @@
-﻿  dinamica.cpp
-c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(45): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(46): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(50): warning C4244: 'argumento': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(60): warning C4244: '+=': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(75): warning C4244: '+=': conversão de 'double' para 'int', possível perda de dados
-  dinamica.vcxproj -> C:\Users\heloy\Desktop\LCCV-cpp\dinamica\Debug\dinamica.exe
+﻿  corporigido.cpp
+c:\users\heloyza\documents\github\dinamica-cpp\dinamica\dinamica\pontointerno.h(16): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloyza\documents\github\dinamica-cpp\dinamica\dinamica\pontointerno.h(45): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloyza\documents\github\dinamica-cpp\dinamica\dinamica\pontointerno.h(57): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloyza\documents\github\dinamica-cpp\dinamica\dinamica\centrodemassa.h(25): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-cpp\dinamica\dinamica\centrodemassa.h(26): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-cpp\dinamica\dinamica\pontointerno.h(70): warning C4715: 'pontointerno': nem todos os caminhos de controle retornam um valor
+  dinamica.vcxproj -> C:\Users\Heloyza\Documents\GitHub\Dinamica-cpp\dinamica\Debug\dinamica.exe

@@ -16,6 +16,9 @@ public:
 
 
 	vetor cross(vetor &);
+	void zeros();
+	void ones();
+
 	//operadores
 	void operator =(const vetor &);
 	vetor operator + (vetor &);

@@ -1,59 +1,105 @@
 #pragma once
-#include "dados.h"
+#include "matriz.h"
 
 
-int pontointerno(double pos_x, double pos_y, dados* Dados)
+double minimo(matriz Mat, int c);
+double maximo(matriz Mat, int c);
+
+int pontointerno(double pos_x, double pos_y, matriz posicao)
 {
 	int ni = 0;
+	double Xmin = minimo(posicao, 0);
+	double Xmax = maximo(posicao, 0);
+	double Ymin = minimo(posicao, 1);
+	double Ymax = maximo(posicao, 1);
+	int n;
+	if (pos_x <= Xmax & pos_x >= Xmin & pos_y <= Ymax & pos_y >= Ymin)
+	{
+		for (int i = 0; i < posicao.getsize()[0]; i++)   //para cada aresta
+		{
+			
+			if (i == posicao.getsize()[0]-1) 
+			{
+				n = 0;
+			}
+			else 
+			{
+				n = i+1;
+			}
 
+			if (posicao.getM()[i][1] != posicao.getM()[n][1])  // se y(i) !=Y(i+1), se a reta não for horizontal
+			{
+				double min_y;
+				double max_y;
+				if (posicao.getM()[i][1] > posicao.getM()[n][1])
+				{
+					min_y = posicao.getM()[n][1];
+					max_y = posicao.getM()[i][1];
+				}
+				else
+				{
+					max_y = posicao.getM()[n][1];
+					min_y = posicao.getM()[i][1];
+				}
 
+				if (posicao.getM()[i][0] != posicao.getM()[n][0] & posicao.getM()[i][1] > min_y & posicao.getM()[i][1] <= max_y)
+				{
+					double a = (posicao.getM()[i][1] - posicao.getM()[n][1]) / (posicao.getM()[i][0] - posicao.getM()[n][0]);   //coef angular da reta
+					double Xr = posicao.getM()[i][0] + (pos_y - posicao.getM()[i][1]) / a;
 
-	return  ni;
+					if (pos_x < Xr)
+					{
+
+						ni++;
+
+					}
+				}
+				else if (posicao.getM()[i][0] == posicao.getM()[n][0] & posicao.getM()[i][1] > min_y & posicao.getM()[i][1] <= max_y)
+				{
+					double Xr = posicao.getM()[i][0];
+					if (pos_x < Xr)
+					{
+						ni++;
+
+					}
+				}
+			}
+		}
+		return ni;
+	}
+}
+
+double minimo(matriz Mat, int c)
+{
+double minimo = Mat.getM()[0][c];
+	for (int i = 1; i < Mat.getsize()[0]; i++)
+	{
+	if (Mat.getM()[i][c] < minimo)
+	{
+	minimo = Mat.getM()[i][c];
+	}
+
 }
 
 
-/*
+return minimo;
+}
 
-function [ni]=pontointerno(X,Y,Xp,Yp
-%(X,Y) coordenada do ponto
-%Xp- vetor com a coordenadas X
-%Yp- Vetor com a coordenada Y
+double maximo(matriz Mat, int c)
+{
 
-np=size(Xp,1);     %Nùmero de pontos
-Yp(np+1)=Yp(1);
-Xp(np+1)=Xp(1);
-ni=0;             %Número de interseções
-
-Xmax=max(Xp);
-Xmin=min(Xp);
-Ymax=max(Yp);
-Ymin=min(Yp);
-
-if X<=Xmax & X>=Xmin & Y>=Ymin & Y<=Ymax
-
-	for i=1:1:np
-	  if Yp(i)~=Yp(i+1)                                   %Se a reta não for horizontal
-
-		if Xp(i)~=Xp(i+1)&&(min(Yp(i),Yp(i+1)))<Y && Y<=(max(Yp(i),Yp(i+1)))  %Se o Y do ponto pertencer ao intervalo y do segmento de reta
-
-		  a=(Yp(i)-Yp(i+1))/(Xp(i)-Xp(i+1));
-		  Xr=Xp(i)+(Y-Yp(i))/a;                          %X da reta para o y do ponto
-
-		  if X<Xr                 %se o ponto estiver a esquerda do segmento de reta
-			ni=ni+1;
-
-			end
-		elseif Xp(i)==Xp(i+1)&&(min(Yp(i),Yp(i+1)))<Y && Y<=(max(Yp(i),Yp(i+1)));     %se o segmento de reta for vertical
-		   Xr=(Xp(i));
-
-		  if X<Xr                 %se o ponto estiver a esquerda do segmento de reta
-			ni=ni+1;
+		double maximo = Mat.getM()[0][c];
 
 
-			end
-		   end
-		  end
-	end
-end
+		for (int i = 1; i < Mat.getsize()[0]; i++)
+		{
+			if (Mat.getM()[i][c] > maximo)
+			{
+				maximo = Mat.getM()[i][c];
+			}
 
-*/
+		}
+
+
+return maximo;
+}

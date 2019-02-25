@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{AE9AA0FD-A4E6-4455-956F-F655A76AF075}</ProjectGuid>
+    <ProjectGuid>{6B033CB3-69FD-463A-B65E-3FDFB3DB719E}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>dinamica</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
@@ -152,15 +152,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="centrodemassa.h" />
+    <ClInclude Include="corporigido.h" />
     <ClInclude Include="dados.h" />
     <ClInclude Include="densidade.h" />
     <ClInclude Include="matriz.h" />
-    <ClInclude Include="momento.h" />
+    <ClInclude Include="momentodeinercia.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="pontointerno.h" />
     <ClInclude Include="vetor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="corporigido.cpp" />
     <ClCompile Include="dados.cpp" />
     <ClCompile Include="dinamica.cpp" />
     <ClCompile Include="matriz.cpp" />
