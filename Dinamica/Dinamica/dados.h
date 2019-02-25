@@ -1,30 +1,32 @@
 #pragma once
-#include "node.h"
+#include "matriz.h"
 
 class dados
 {
-
 public:
-	int Nc;         //numero de elementos
-	node* corpo;	//coodenadas dos vertices de cada corpo
-	double** Fext;  //[Fx Fy] externa de cada corpo
-	double** Fcont;  //[Fx Fy] de contato de cada corpo
-	double** Vel;	//[Vx Vy] de cada corpo	
-	double** CM;    //[Xcm Ycm] de cada corpo
-
-
-	double* torque;
-	double* massa;
-	double* I;
-
-	dados(int Nc);   //Ne= numero de elementos
-	void print();
-	void setcorpo(int n, node P);
-	int getNc();
+	dados(int N);
+	int Nc;
 	
-	//void setCM();
+	matriz* corpo;   //coordenadas dos corpos rigidos
+	
+	matriz Fext;	//forças externas
+	matriz Fcont;	//forças internas
+	matriz torque;  //torque
+	matriz Vel;		//velocidades dos corpos
+	matriz W;		//velocidade angular dos corpos
+	matriz massa;	//massa	
+	matriz I;		//momento de inercia
+	matriz CM;		//centro de massa
+	
+	
+
+
+	void setcorpo (int i,matriz &M);
+	void print();
+	
+
+
 
 	~dados();
-
 };
 

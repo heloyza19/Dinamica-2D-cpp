@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{34F6F621-1C0D-4EE4-96DD-F901DAF84B65}</ProjectGuid>
+    <ProjectGuid>{AE9AA0FD-A4E6-4455-956F-F655A76AF075}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>Dinamica</RootNamespace>
+    <RootNamespace>dinamica</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -151,20 +151,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="centrodemassa.h" />
     <ClInclude Include="dados.h" />
-    <ClInclude Include="elementosdiscretos.h" />
+    <ClInclude Include="densidade.h" />
     <ClInclude Include="matriz.h" />
     <ClInclude Include="momento.h" />
-    <ClInclude Include="node.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="setCM.h" />
+    <ClInclude Include="pontointerno.h" />
     <ClInclude Include="vetor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dados.cpp" />
-    <ClCompile Include="Dinamica.cpp" />
+    <ClCompile Include="dinamica.cpp" />
     <ClCompile Include="matriz.cpp" />
-    <ClCompile Include="node.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

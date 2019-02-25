@@ -1,2 +1,7 @@
-﻿  Dinamica.cpp
-  Dinamica.vcxproj -> C:\Users\Heloyza\Documents\GitHub\Dinamica-2D-cpp\Dinamica\Debug\Dinamica.exe
+﻿  dinamica.cpp
+c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(45): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(46): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(50): warning C4244: 'argumento': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(60): warning C4244: '+=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\lccv-cpp\dinamica\dinamica\centrodemassa.h(75): warning C4244: '+=': conversão de 'double' para 'int', possível perda de dados
+  dinamica.vcxproj -> C:\Users\heloy\Desktop\LCCV-cpp\dinamica\Debug\dinamica.exe
