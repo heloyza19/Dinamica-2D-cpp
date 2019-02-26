@@ -1,5 +1,6 @@
 #pragma once
 #include "matriz.h"
+
 class corporigido
 {
 
@@ -15,10 +16,9 @@ public:
 	double I;
 	double massa;
 
-	void centrodemassa ();
-
-
 	corporigido(int np);
 	~corporigido();
+
+	void centrodemassa();
 };
 

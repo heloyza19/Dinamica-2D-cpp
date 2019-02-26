@@ -63,4 +63,7 @@
       <Filter>Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Object Include="Debug\pch.obj" />
+  </ItemGroup>
 </Project>

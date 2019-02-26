@@ -1,7 +1,7 @@
 #pragma once
 #include "pontointerno.h"
 
-double densidade(matriz* massa_esp, matriz posicao,int  nx, int ny, double dx, double dy)
+double densidade(matriz* massa_esp, matriz posicao,int  nx, int ny, double dx, double dy, double xo,double yo)
 {
 double m = 0;
 int ni;
@@ -10,7 +10,7 @@ for (int i = 0; i < nx; i++)
 	for (int j = 0; j < ny; j++)
 	{
 
-	 ni= pontointerno(i*dx,j*dy,posicao);
+	 ni= pontointerno(xo+i*dx,yo+j*dy,posicao);
 
 	if (ni % 2 == 0)
 	{

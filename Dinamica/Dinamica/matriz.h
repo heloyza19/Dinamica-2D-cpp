@@ -3,13 +3,10 @@
 
 class matriz
 {
-private:
-
-	int Size[2];
+private:	
 	double **M;
-
 public:
-
+	int size[2];
 	matriz(int m, int n);
 	matriz(const matriz &);
 

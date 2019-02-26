@@ -4,12 +4,13 @@
 
 dados::dados(int nc)
 {
-	corpo = new corporigido(nc);
+
+	size = nc;
 
 }
 
 
 dados::~dados()
 {
-	delete[]corpo;
+	
 }

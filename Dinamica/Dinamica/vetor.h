@@ -5,13 +5,14 @@ class vetor
 {
 
 public:
+	int size;
+
 	vetor(int t);
 	~vetor();
 	vetor(const vetor &A);
 
 	void setV(double* A);
 	double* getV();
-	int getsize();
 	void print();
 
 
@@ -28,9 +29,6 @@ public:
 	//vetor operator *(matriz &A);
 
 private:
-	int Size;
 	double *V;
-
-
 };
 

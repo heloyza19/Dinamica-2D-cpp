@@ -3,6 +3,7 @@
 #include "centrodemassa.h"
 
 
+
 corporigido::corporigido(int np):Fext(2),Fcont(2),Vel(2),CM(2), posicao(np,2)
 {
 Fext.zeros();
