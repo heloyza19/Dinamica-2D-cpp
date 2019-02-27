@@ -18,10 +18,11 @@ public:
 	double massa;
 
 	
-	matriz pos_raio;          // raio da posicao em coordenadas polares
-	matriz pos_teta;		//angulo da posicao em coordenadas polares
+	vetor pos_raio;          // raio da posicao em coordenadas polares
+	vetor pos_teta;		//angulo da posicao em coordenadas polares
 
 	corporigido(int np);
+	void polares();
 	~corporigido();
 
 	void centrodemassa();

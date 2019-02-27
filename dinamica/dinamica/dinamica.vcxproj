@@ -153,9 +153,9 @@
   <ItemGroup>
     <ClInclude Include="centrodemassa.h" />
     <ClInclude Include="corporigido.h" />
-    <ClInclude Include="dados.h" />
     <ClInclude Include="densidade.h" />
     <ClInclude Include="elementodiscreto.h" />
+    <ClInclude Include="integracaotemporal.h" />
     <ClInclude Include="matriz.h" />
     <ClInclude Include="momentodeinercia.h" />
     <ClInclude Include="pch.h" />
@@ -164,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="corporigido.cpp" />
-    <ClCompile Include="dados.cpp" />
     <ClCompile Include="dinamica.cpp" />
     <ClCompile Include="elementodiscreto.cpp" />
     <ClCompile Include="matriz.cpp" />

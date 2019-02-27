@@ -1,3 +1,4 @@
-﻿  elementodiscreto.cpp
+﻿  dinamica.cpp
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(59): warning C4018: '<': incompatibilidade de signed/unsigned
 Debug\pch.obj : warning LNK4042: objeto especificado mais de uma vez; extras ignorados
-  dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\Dinamica-2D-cpp\Dinamica\Debug\dinamica.exe
+  dinamica.vcxproj -> C:\Users\Heloyza\Documents\GitHub\Dinamica-2D-cpp\dinamica\Debug\dinamica.exe
