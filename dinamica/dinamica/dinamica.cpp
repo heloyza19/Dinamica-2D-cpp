@@ -1,12 +1,16 @@
 #include "pch.h"
 #include <iostream>
-#include "dados.h"
+#include <vector>
+#include "corporigido.h"
+#include "elementodiscreto.h"
+
 
 
 
 using namespace std;
 int main()
 {
+vector <corporigido*> Dados;
 int Ncr = 2;			//numero de corpos rigidos
 int Np = 4;            //numero de vertices
 int Ne = 10;	      //numero de elementos discretos
@@ -32,23 +36,23 @@ m2[1][0] = 5; m2[1][1] = 6;
 m2[2][0] = 8; m2[2][1] = 4;
 m2[3][0] = 8; m2[3][1] = 6;
 
-corporigido corpo1(Np);
-corpo1.posicao.setM(m);
-corpo1.centrodemassa();
+corporigido *corpo1=new corporigido (Np);
+corpo1->posicao.setM(m);
+corpo1->centrodemassa();
 
-corporigido corpo2 (Np);
-corpo2.posicao.setM(m2);
-corpo2.centrodemassa();
+corporigido *corpo2 =new corporigido (Np);
+corpo2->posicao.setM(m2);
+corpo2->centrodemassa();
 
-dados *Dados = new dados(Ncr);
-Dados->corpo.push_back(corpo1);
-Dados->corpo.push_back(corpo2);
-
-Dados->corpo[0].posicao.print();
-//Dados->corpo[1].posicao.print();
+Dados.push_back(corpo1);
+Dados.push_back(corpo2);
 
 
 
+
+//Fazer polares dos vertices
+//Fazer integracao temporal
+//Fazer determinação de contatos
 
 return 0;
 }

@@ -2,10 +2,9 @@
 #include "dados.h"
 
 
-dados::dados(int nc)
+dados::dados()
 {
 
-	size = nc;
 
 }
 

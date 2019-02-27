@@ -4,7 +4,7 @@
 
 
 
-corporigido::corporigido(int np):Fext(2),Fcont(2),Vel(2),CM(2), posicao(np,2)
+corporigido::corporigido(int np):Fext(2),Fcont(2),Vel(2),CM(2), posicao(np,2),pos_raio(np,1),pos_teta(np,1)
 {
 Fext.zeros();
 Fcont.zeros();

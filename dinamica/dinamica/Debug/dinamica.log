@@ -1,15 +1,3 @@
-﻿  dados.cpp
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(10): error C2143: erro de sintaxe: ';' ausente antes de '<'
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(10): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(10): error C2238: token(s) inesperado(s) precedendo ';'
-  dinamica.cpp
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(10): error C2143: erro de sintaxe: ';' ausente antes de '<'
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(10): error C4430: faltando especificador de tipo - int assumido. Observação: C++ não suporta default-int
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(10): error C2238: token(s) inesperado(s) precedendo ';'
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(44): error C2039: 'corpo': não é um membro de 'dados'
-  c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(6): note: consulte a declaração de 'dados'
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(45): error C2039: 'corpo': não é um membro de 'dados'
-  c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(6): note: consulte a declaração de 'dados'
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(47): error C2039: 'corpo': não é um membro de 'dados'
-  c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dados.h(6): note: consulte a declaração de 'dados'
-  Gerando Código...
+﻿  elementodiscreto.cpp
+Debug\pch.obj : warning LNK4042: objeto especificado mais de uma vez; extras ignorados
+  dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\Dinamica-2D-cpp\Dinamica\Debug\dinamica.exe
