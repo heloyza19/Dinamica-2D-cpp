@@ -1,4 +1,7 @@
 ﻿  dinamica.cpp
-c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(59): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(62): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(76): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(99): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(113): warning C4018: '<': incompatibilidade de signed/unsigned
 Debug\pch.obj : warning LNK4042: objeto especificado mais de uma vez; extras ignorados
   dinamica.vcxproj -> C:\Users\Heloyza\Documents\GitHub\Dinamica-2D-cpp\dinamica\Debug\dinamica.exe
