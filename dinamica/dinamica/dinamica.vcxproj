@@ -151,7 +151,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="campo.h" />
     <ClInclude Include="centrodemassa.h" />
+    <ClInclude Include="contato.h" />
     <ClInclude Include="corporigido.h" />
     <ClInclude Include="densidade.h" />
     <ClInclude Include="elementodiscreto.h" />
@@ -160,9 +162,11 @@
     <ClInclude Include="momentodeinercia.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="pontointerno.h" />
+    <ClInclude Include="sistema.h" />
     <ClInclude Include="vetor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="campo.cpp" />
     <ClCompile Include="corporigido.cpp" />
     <ClCompile Include="dinamica.cpp" />
     <ClCompile Include="elementodiscreto.cpp" />
@@ -173,6 +177,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="sistema.cpp" />
     <ClCompile Include="vetor.cpp" />
   </ItemGroup>
   <ItemGroup>

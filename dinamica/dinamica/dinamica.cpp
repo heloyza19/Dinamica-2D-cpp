@@ -1,18 +1,13 @@
 #include "pch.h"
 #include <iostream>
 #include <vector>
-#include <math.h>
-#include "corporigido.h"
-#include "elementodiscreto.h"
 
-
+#include "sistema.h"
 
 using namespace std;
 int main()
 {
-	vector <corporigido*> Dados;
-	vector <elementodiscreto*> Element;
-
+	
 	int Ncr = 2;			//numero de corpos rigidos
 	int Np = 4;            //numero de vertices
 	int Ned = 10;	      //numero de elementos discretos
@@ -38,42 +33,59 @@ int main()
 	m2[2][0] = 8; m2[2][1] = 4;
 	m2[3][0] = 8; m2[3][1] = 6;
 
-	corporigido *corpo1 = new corporigido(Np);
-	corpo1->posicao.setM(m);
-	corpo1->centrodemassa();
-	corpo1->polares();
-	elementodiscreto* corpo1ed = new elementodiscreto(corpo1, Ned);
+	corporigido corpo1(Np);
+	corpo1.posicao.setM(m);
+	corpo1.centrodemassa();
+	corpo1.polares();
+	corpo1.Vel.ones();
 
-	corporigido *corpo2 = new corporigido(Np);
-	corpo2->posicao.setM(m2);
-	corpo2->centrodemassa();
-	corpo2->polares();
-	elementodiscreto* corpo2ed = new elementodiscreto(corpo2, Ned);
+	elementodiscreto corpo1ed (&corpo1, Ned);
 
-	Dados.push_back(corpo1);
-	Dados.push_back(corpo2);
+	corporigido corpo2 (Np);
+	corpo2.posicao.setM(m2);
+	corpo2.centrodemassa();
+	corpo2.polares();
+	corpo2.Vel.ones();
+	elementodiscreto corpo2ed (&corpo2, Ned);
 
-	Element.push_back(corpo1ed);
-	Element.push_back(corpo2ed);
+	sistema* Dados = new sistema(L,H);
 
-	//determincação do dt
+	Dados->corpo.push_back(corpo1);
+	Dados->corpo.push_back(corpo2);
+	Dados->element.push_back(corpo1ed);
+	Dados->element.push_back(corpo2ed);
+	Dados->setdx();
+
+	cout<<Dados->element.size()<<endl;
+	//Dados->setmapa();
+
+	Dados->element[0].raio.print();
+	Dados->element[1].raio.print();
+	cout << Dados->dx<<endl;
+
+;
+
+	////determincação do dt
 	double massamax = 0;
 
-	for (int i = 0; i < Dados.size(); i++)
+	for (int i = 0; i < Dados->corpo.size(); i++)
 	{
-		if (Dados[i]->massa > massamax)
+		if (Dados->corpo[i].massa > massamax)
 		{
-			massamax = Dados[i]->massa;
+			massamax = Dados->corpo[i].massa;
 		}
 
 	}
 
 
 	double tc = 2 * sqrt(massamax / Kn);    //tempo critico
-	double e = 0.001;					    //percentual do tempo critico					
+	double e = 0.1;					    //percentual do tempo critico					
 	double dt = e * tc;					   //passo no incremento do tempo
-	double tempo = 0.006;			     //tempo de simulacao do problema
+	double tempo = 0.01;			     //tempo de simulacao do problema
 	int sizet = ceil(tempo / dt);       //numero de passos
+	cout << "sizet= " << sizet << endl;
+	std::cout << "Tempo critico= " << tc << std::endl;
+	cout << "dt= " << dt << endl;
 
 	double* Eelas = new double(sizet);
 	double* Ek = new double(sizet);
@@ -81,11 +93,15 @@ int main()
 	double* momentolin = new double(sizet);
 	double* momentoang = new double(sizet);
 	double* vetormomento = new double(2);
+
 	vetor modmomento(2);
 	vetor Fres(2);
 	vetor dV(2);
+	vetor ds(2);
 	double alfa;
 	vetor vetmomento(2);
+	vetor K(2);
+
 
 	for (int t = 0; t < sizet; t++)
 	{
@@ -93,70 +109,25 @@ int main()
 		Ek[t] = 0;
 		Ekr[t] = 0;
 		vetmomento.zeros();
-
-
-		//translacao
-		for (int i = 0; i < Dados.size(); i++)
-		{
-
-			Fres = Dados[i]->Fext + Dados[i]->Fcont;
-			dV = Fres * (dt / Dados[i]->massa);
-
-			Dados[i]->Vel = Dados[i]->Vel + dV;  //erro *dt
-
-			Dados[i]->CM = Dados[i]->CM + Dados[i]->Vel;
-
-		}
-
-		//rotacao
-
-		for (int i = 0; i < Dados.size(); i++)
-		{
-			vetor V(Dados[i]->posicao.size[0]);
-			matriz M(Dados[i]->posicao.size[0], Dados[i]->posicao.size[1]);
-
-			Ek[t] = Ek[t] + 0.5*Dados[i]->massa*sqrt(pow(Dados[i]->Vel.getV()[0], 2) + pow(Dados[i]->Vel.getV()[1], 2));
-			Ekr[t] = Ekr[t] + 0.5*(Dados[i]->I*pow(Dados[i]->W, 2));
-
-			alfa = Dados[i]->torque / Dados[i]->I;
-
-
-			//Dados[i]->pos_teta = Dados[i]->pos_teta + V.ones()*(0.5*Dados[i]->W)*dt;
-
-
-			double** pos = new double*[Dados[i]->posicao.size[0]];
-
-
-			for (int j = 0; j < Dados[i]->posicao.size[0]; j++)
-			{
-				pos[j] = new double[2];
-				pos[j][0] = Dados[i]->CM.getV()[0] + Dados[i]->pos_raio.getV()[j] * cos(Dados[i]->pos_raio.getV()[j]);
-				pos[j][1] = Dados[i]->CM.getV()[1] + Dados[i]->pos_raio.getV()[j] * sin(Dados[i]->pos_raio.getV()[j]);
-
-
-
-
-				//para os elemetnos discretos
-				for (int k = 0; k < Ned; k++)
-				{
-					Element[i]->pos_teta.getM()[j][k] = Element[i]->pos_teta.getM()[j][k] + dt * Dados[i]->W;
-				}
-			}
-			Dados[i]->posicao.setM(pos);
-
-
-			vetmomento = Dados[i]->Vel * Dados[i]->massa + vetmomento;
-			momentoang[t] = momentoang[t] + Dados[i]->I* Dados[i]->W;
-			momentolin[t] = sqrt(pow(vetmomento.getV()[0], 2) + pow(vetmomento.getV()[1], 2));
-
-
-			//Fazer mapeamento
-
-		}
-
-
-
-		return 0;
+		momentoang[t] = 0;
 	}
+
+
+
+	
+
+	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -5,7 +5,9 @@ class vetor
 {
 
 public:
+
 	int size;
+	double *V;
 
 	vetor(int t);
 	~vetor();
@@ -15,7 +17,7 @@ public:
 	double* getV();
 	void print();
 
-
+	double norm();
 	vetor cross(vetor &);
 	void zeros();
 	void ones();
@@ -27,8 +29,6 @@ public:
 	double operator *(vetor &);
 	vetor operator *(double);
 	//vetor operator *(matriz &A);
-
-private:
-	double *V;
+	
 };
 

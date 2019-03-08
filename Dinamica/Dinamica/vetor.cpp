@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "vetor.h"
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -39,10 +40,17 @@ double* vetor::getV()
 
 
 
-//int vetor::getsize()
-//{
-//	return size;
-//}
+double vetor::norm()
+{
+	double norma = 0;
+	for (int i = 0; i < size; i++)
+	{
+		norma += pow(V[i], 2);
+	}
+
+	return sqrt(norma);
+
+}
 
 void vetor::zeros()
 {
@@ -102,27 +110,32 @@ vetor::vetor(const vetor &A)
 	this->setV(c);
 }
 
-vetor vetor::operator + (vetor &A) {
-	if (A.size == this->size) {
+vetor vetor::operator + (vetor &A) 
+{
+	if (A.size == this->size) 
+	{
 		vetor C(A.size);
 		double* c = new double[A.size];
 
 		for (int i = 0; i < A.size; i++)
 		{
-			*(c + i) = this->V[i] + A.V[i];
+			c[i] = this->V[i] + A.V[i];
 		}
 
 		C.setV(c);
 
 		return C;
 	}
-	else {
+	else 
+	{
 		cerr << "vetores com tamanhos diferentes\n";
 	}
 }
 
-vetor vetor::operator - (vetor &A) {
-	if (A.size == this->size) {
+vetor vetor::operator - (vetor &A) 
+{
+	if (A.size == this->size) 
+	{
 		vetor C(A.size);
 		double* c = new double[A.size];
 
@@ -135,12 +148,14 @@ vetor vetor::operator - (vetor &A) {
 
 		return C;
 	}
-	else {
+	else
+	{
 		cerr << "vetores com tamanhos diferentes\n";
 	}
 }
 
-double vetor::operator *(vetor &B) {
+double vetor::operator *(vetor &B) 
+{
 	if (this->size == B.size)
 	{
 		double p = 0;
@@ -150,7 +165,8 @@ double vetor::operator *(vetor &B) {
 		}
 		return p;
 	}
-	else {
+	else 
+	{
 		cerr << "Vetores com tamanhos diferentes\n";
 	}
 

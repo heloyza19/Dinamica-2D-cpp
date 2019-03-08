@@ -4,7 +4,7 @@
 
 #define pi acos(-1.0)
 
-elementodiscreto::elementodiscreto(corporigido* corpo, int Ned) :xcentro(corpo->posicao.size[0],Ned), ycentro(corpo->posicao.size[0], Ned), raio(corpo->posicao.size[0]), pos_raio(corpo->posicao.size[0],2),pos_teta(corpo->posicao.size[0],2)
+elementodiscreto::elementodiscreto(corporigido* corpo, int Ned) :xcentro(corpo->posicao.size[0],Ned), ycentro(corpo->posicao.size[0], Ned), raio(corpo->posicao.size[0]), pos_raio(corpo->posicao.size[0],Ned),pos_teta(corpo->posicao.size[0],Ned)
 {
 
 int Np = corpo->posicao.size[0];
@@ -65,6 +65,7 @@ for (int j = 0; j < Ned; j++)
 }
 pos_raio.setM(Pos_raio);
 pos_teta.setM(Pos_teta);
+
 }
 
 
