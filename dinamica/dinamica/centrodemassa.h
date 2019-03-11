@@ -15,57 +15,51 @@ double* cm = new double [2];
 double Mx = 0;       //contador momento em x
 double My = 0;       //contador momento em y
 
-double Xmin = minimo(posicao, 0);
-double Xmax = maximo(posicao, 0);
+//double Xmin = minimo(posicao, 0);
+//double Xmax = maximo(posicao, 0);
+//
+//double Ymin = minimo(posicao, 1);
+//double Ymax = maximo(posicao, 1);
+//
+//double xo = Xmin - dx;
+//double xn = Xmax + dx;
+//
+//double yo = Ymin - dy;
+//double yn = Ymax + dy;
 
-double Ymin = minimo(posicao, 1);
-double Ymax = maximo(posicao, 1);
-
-double xo = Xmin - dx;
-double xn = Xmax + dx;
-
-double yo = Ymin - dy;
-double yn = Ymax + dy;
-
-int nx = ceil((xn- xo) / dx);
-int ny = ceil((yn - yo) / dy);
+int nx = ceil((maximo(posicao, 0) + dx- minimo(posicao, 0)+dx) / dx);
+int ny = ceil((maximo(posicao, 1)+ dy  - minimo(posicao, 1)+dy) / dy);
 
 matriz *massa_esp = new matriz(nx, ny);      //matriz da massa especifica
 massa_esp->ones();
 
-massa = densidade(massa_esp, posicao, nx, ny, dx, dy,xo,yo);
+massa = densidade(massa_esp, posicao, nx, ny, dx, dy, minimo(posicao, 0) - dx, minimo(posicao, 1) - dy);
 
-
-
-
-double x;
-double y;
 
 for (int i = 0; i < nx; i++)
 {
-	x =xo+ i * dx;
 	for (int j = 0; j < ny; j++)
 	{
-		My += x * massa_esp->getM()[i][j];
+		My += (minimo(posicao, 0) - dx + i * dx) * massa_esp->getM()[i][j];
 	}
 
 }
 
 for (int i = 0; i < ny; i++)
 {
-	y = yo+i * dy;
+	
 	for (int j = 0; j < nx; j++)
 	{
-		Mx += y * massa_esp->getM()[j][i];
+		Mx += (minimo(posicao, 1) - dy + i * dy) * massa_esp->getM()[j][i];
 	}
 
 }
 
-cm[0] = dA * (My / massa);
-cm[1] = dA * (Mx / massa);
-CM.setV(cm);
 
-I = momentodeinercia(massa_esp, nx, ny, dx, dy, CM,xo,yo);
+CM.V[0]= dA * (My / massa);
+CM.V[1]= dA * (Mx / massa);
+
+I = momentodeinercia(massa_esp, nx, ny, dx, dy, CM, minimo(posicao, 0) - dx, minimo(posicao, 1) - dy);
 
 
 }

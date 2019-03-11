@@ -33,9 +33,7 @@ for (int j=0; j < corpo[i].posicao.size[0]; j++)
 	for (int k = 0; k < Ned; k++)
 	{
 
-		/*C=mapeamento(element[i].xcentro.getM()[j][k], element[i].ycentro.getM()[j][k]);
-		l = C[0];
-		h = C[1];*/
+		
 		//colisao lateral  (paredes)
 
 		if (element[i].xcentro.getM()[j][k] <= element[i].raio.getV()[j])
