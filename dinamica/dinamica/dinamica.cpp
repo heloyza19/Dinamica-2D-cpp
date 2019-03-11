@@ -1,6 +1,6 @@
 #include "pch.h"
 #include <iostream>
-#include <vector>
+//#include <vector>
 
 #include "sistema.h"
 
@@ -87,29 +87,36 @@ int main()
 	std::cout << "Tempo critico= " << tc << std::endl;
 	cout << "dt= " << dt << endl;
 
-	double* Eelas = new double(sizet);
-	double* Ek = new double(sizet);
-	double* Ekr = new double(sizet);
-	double* momentolin = new double(sizet);
-	double* momentoang = new double(sizet);
-	double* vetormomento = new double(2);
+	double* Eelas = new double[sizet];
+	double* Ek = new double[sizet];
+	double* Ekr = new double[sizet];
+	double* momentolin = new double[sizet];
+	double* momentoang = new double[sizet];
+	double* vetormomento = new double[2];
 
 	vetor modmomento(2);
 	vetor Fres(2);
 	vetor dV(2);
 	vetor ds(2);
-	double alfa;
+	
 	vetor vetmomento(2);
 	vetor K(2);
 
 
 	for (int t = 0; t < sizet; t++)
 	{
-		Eelas[t] = 0;
+	
 		Ek[t] = 0;
 		Ekr[t] = 0;
 		vetmomento.zeros();
 		momentoang[t] = 0;
+
+		Eelas[t]=Dados->contato(Kn, Cn, Ned);
+
+
+
+
+
 	}
 
 

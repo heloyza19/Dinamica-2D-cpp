@@ -9,17 +9,17 @@ int* l;
 int* h;
 int Nba, E, Na;
 double D;
-double torque1x = 0, torque1y = 0, torque2x = 0, torque2y = 0;
+double torque1x = 0, torque1y = 0;
 double ang1x, ang1y, ang2x, and2y;
 vetor Fn(2);
 vetor Fr(2);
 vetor Fnx(2);
 vetor Fny(2);
 vetor R1(2);
-vetor R2(2);
+//vetor R2(2);
 
 
-double* Vn = new double(2);
+double* Vn = new double[2];
 vetor Vnormal(2);
 
  

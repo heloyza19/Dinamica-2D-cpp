@@ -1,14 +1,7 @@
 ﻿  dinamica.cpp
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(77): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(91): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(107): warning C4101: 'alfa': variável local não referenciada
-  sistema.cpp
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(16): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(32): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(82): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(83): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(89): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(90): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(99): warning C4018: '<': incompatibilidade de signed/unsigned
-  Gerando Código...
-  dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\Dinamica-2D-cpp\Dinamica\Debug\dinamica.exe
+c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(71): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(85): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(101): warning C4101: 'alfa': variável local não referenciada
+Debug\pch.obj : warning LNK4042: objeto especificado mais de uma vez; extras ignorados
+dinamica.obj : error LNK2019: símbolo externo indefinido "public: double __thiscall sistema::contato(double,double,int)" (?contato@sistema@@QAENNNH@Z) referenciado na função _main
+C:\Users\heloy\Documents\GitHub\Dinamica-2D-cpp\Dinamica\Debug\dinamica.exe : fatal error LNK1120: 1 externo não resolvidos
