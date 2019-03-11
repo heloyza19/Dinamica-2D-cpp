@@ -1,7 +1,42 @@
 ﻿  dinamica.cpp
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(71): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(85): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(101): warning C4101: 'alfa': variável local não referenciada
-Debug\pch.obj : warning LNK4042: objeto especificado mais de uma vez; extras ignorados
-dinamica.obj : error LNK2019: símbolo externo indefinido "public: double __thiscall sistema::contato(double,double,int)" (?contato@sistema@@QAENNNH@Z) referenciado na função _main
-C:\Users\heloy\Documents\GitHub\Dinamica-2D-cpp\Dinamica\Debug\dinamica.exe : fatal error LNK1120: 1 externo não resolvidos
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(71): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\dinamica.cpp(85): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+  sistema.cpp
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(29): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(132): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(134): warning C4244: '=': conversão de '_Ty' para 'int', possível perda de dados
+          with
+          [
+              _Ty=double
+          ]
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(135): warning C4244: '=': conversão de '_Ty' para 'int', possível perda de dados
+          with
+          [
+              _Ty=double
+          ]
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(136): warning C4244: '=': conversão de '_Ty' para 'int', possível perda de dados
+          with
+          [
+              _Ty=double
+          ]
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(166): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(170): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(189): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(193): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(222): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(226): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(245): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(249): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(16): warning C4101: 'and2y': variável local não referenciada
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(9): warning C4101: 'l': variável local não referenciada
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(9): warning C4101: 'h': variável local não referenciada
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\contato.h(16): warning C4101: 'ang2x': variável local não referenciada
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(19): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(35): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(85): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(86): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(93): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(94): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\desktop\dinamica-2d-cpp\dinamica\dinamica\sistema.cpp(113): warning C4018: '<': incompatibilidade de signed/unsigned
+  Gerando Código...
+  dinamica.vcxproj -> C:\Users\heloy\Desktop\Dinamica-2D-cpp\Dinamica\Debug\dinamica.exe

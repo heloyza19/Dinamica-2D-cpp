@@ -48,7 +48,7 @@ int main()
 	corpo2.Vel.ones();
 	elementodiscreto corpo2ed (&corpo2, Ned);
 
-	sistema* Dados = new sistema(L,H);
+                                                                                                                                                                                                                                                                                                                               	sistema* Dados = new sistema(L,H, Kn,Cn,Ned);
 
 	Dados->corpo.push_back(corpo1);
 	Dados->corpo.push_back(corpo2);
@@ -57,7 +57,7 @@ int main()
 	Dados->setdx();
 
 	cout<<Dados->element.size()<<endl;
-	//Dados->setmapa();
+	Dados->setmapa();
 
 	Dados->element[0].raio.print();
 	Dados->element[1].raio.print();
@@ -111,7 +111,7 @@ int main()
 		vetmomento.zeros();
 		momentoang[t] = 0;
 
-		Eelas[t]=Dados->contato(Kn, Cn, Ned);
+		//Dados->contato();
 
 
 

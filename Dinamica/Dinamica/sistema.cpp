@@ -1,12 +1,15 @@
 #include "pch.h"
 #include "sistema.h"
-
+#include "contato.h"
 #include <iostream>
 
-sistema::sistema(double L, double H)
+sistema::sistema(double L, double H, double Kn, double Cn, int Ned)
 {
 	this->L = L;
 	this->H = H;
+	this->Kn = Kn;
+	this->Cn = Cn;
+	this->Ned = Ned;
 }
 
 void sistema::setdx()
@@ -27,7 +30,7 @@ void sistema::setdx()
 
 }
 
-void sistema::integracao(int Ned, double dt)
+void sistema::integracao( double dt)
 {
 	for (int i = 0; i < corpo.size(); i++)
 	{
@@ -76,25 +79,36 @@ void sistema::integracao(int Ned, double dt)
 	}
 }
 
-void sistema::mapeamento(double x, double y, int* i, int* j)
+int* sistema::mapeamento(double x, double y)
 {
+int* C= new int (2);
+C[0] = floor(x / dx) ;
+C[1] = floor(y/ dx) ;
 
-*i = floor(x / dx) ;
-*j = floor(y/ dx) ;
-
+return C;
 }
 
 void sistema::setmapa()
 {
 int N = ceil(L / dx);
 int M = ceil(H / dx);
-int* a=0;
-int* b=0;
+int* C = new int(2);
+int a, b;
+
 mapa = new campo**[N];
 for (int i = 0; i < N; i++)
 {
 	mapa[N] = new campo*[M];
 }
+
+//for (int i = 0; i < N; i++)
+//{
+//	for (int j = 0; j < M; j++)
+//	{
+//		mapa[i][j] = new campo();
+//	}
+//}
+
 
 for (int i = 0; i < corpo.size(); i++)
 {
@@ -104,11 +118,12 @@ for (int i = 0; i < corpo.size(); i++)
 		for (int k = 0; k < element[i].pos_raio.size[1]; k++)
 		{
 
-			mapeamento(element[i].xcentro.getM()[j][k], element[i].ycentro.getM()[j][k], a, b);
-
-			mapa[*a][*b]->corpo.push_back(i);
-			mapa[*a][*b]->aresta.push_back(j);
-			mapa[*a][*b]->elem.push_back(k);
+			C=mapeamento(element[i].xcentro.getM()[j][k], element[i].ycentro.getM()[j][k]);
+			a = C[0];
+			b = C[1];
+			mapa[a][b]->corpo.push_back(i);
+			mapa[a][b]->aresta.push_back(j);
+			mapa[a][b]->elem.push_back(k);
 
 		}
 

@@ -1,15 +1,18 @@
 #pragma once
 #include "sistema.h"
 
-
-double sistema::contato(double Kn, double Cn, int Ned)
+vetor Fnormal(vetor Vnormal, double Cn, double Kn, vetor Vel1, vetor Vel2, double ra, double rb, double d);
+void sistema::contato()
 {
 double Eelas = 0;
-int* l;
-int* h;
+int* C = new int(2);
+int l, h;
+int* P = new int(2);
+int P1, P2;
 int Nba, E, Na;
 double D;
 double torque1x = 0, torque1y = 0;
+double torque2x = 0, torque2y = 0;
 double ang1x, ang1y, ang2x, and2y;
 vetor Fn(2);
 vetor Fr(2);
@@ -30,8 +33,9 @@ for (int j=0; j < corpo[i].posicao.size[0]; j++)
 	for (int k = 0; k < Ned; k++)
 	{
 
-		mapeamento(element[i].xcentro.getM()[j][k], element[i].ycentro.getM()[j][k], l, h);
-
+		/*C=mapeamento(element[i].xcentro.getM()[j][k], element[i].ycentro.getM()[j][k]);
+		l = C[0];
+		h = C[1];*/
 		//colisao lateral  (paredes)
 
 		if (element[i].xcentro.getM()[j][k] <= element[i].raio.getV()[j])
@@ -91,26 +95,29 @@ for (int j=0; j < corpo[i].posicao.size[0]; j++)
 		}
 
 		//colisao entre corpos
-		int* P1;
-		int* P2;
-		mapeamento(element[i].xcentro.getM()[j][k], element[i].ycentro.getM()[j][k],P1, P2 );
+		
+		
+		
+		P=mapeamento(element[i].xcentro.getM()[j][k], element[i].ycentro.getM()[j][k]);
+		P1 = P[0];
+		P2 = P[1];
 
 		int a = -1;
 		int b = 1;
 		int c = -1;
 		int d = 1;
 
-		if (*P1 == 0)
+		if (P1 == 0)
 		{ a = 0;
 		}
-		else if (*P1 == ceil(L / dx))
+		else if (P1 == ceil(L / dx))
 		{	b = 0;
 		}
-		if( *P2 == 0)
+		if(P2 == 0)
 		{
 			c = 0;
 		}
-		else if( *P2 == ceil(H / dx))
+		else if(P2 == ceil(H / dx))
 		{
 			d = 0;
 		}
@@ -120,13 +127,13 @@ for (int j=0; j < corpo[i].posicao.size[0]; j++)
 		{
 			for (int B = c; B < d; B++)
 			{
-				if (mapa[*P1 + A][*P2 + B]->corpo.size() > 0) 
+				if (mapa[P1 + A][P2 + B]->corpo.size() > 0) 
 				{
-					for(int C=0;C< mapa[*P1 + A][*P2 + B]->corpo.size();C++)
+					for(int C=0;C< mapa[P1 + A][P2 + B]->corpo.size();C++)
 					{
-						Nba = mapa[*P1 + A][*P2 + B]->elem[C];
-						E = mapa[*P1 + A][*P2 + B]->corpo[C];
-						Na = mapa[*P1 + A][*P2 + B]->aresta[C];
+						Nba = mapa[P1 + A][P2 + B]->elem[C];
+						E = mapa[P1 + A][P2 + B]->corpo[C];
+						Na = mapa[P1 + A][P2 + B]->aresta[C];
 						
 						D = sqrt(pow(element[i].xcentro.getM()[j][k] - element[E].xcentro.getM()[Na][Nba], 2) + pow(element[i].ycentro.getM()[j][k] - element[E].ycentro.getM()[Na][Nba], 2));
 
@@ -274,7 +281,7 @@ for (int j=0; j < corpo[i].posicao.size[0]; j++)
 
 
 
-	return Eelas;
+	//return Eelas;
 }
 
 

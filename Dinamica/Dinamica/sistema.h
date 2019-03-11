@@ -11,14 +11,15 @@ public:
 	vector <elementodiscreto> element;
 	campo*** mapa;
 
-	double L, H,dx;
+	double L, H,dx, Kn, Cn;
+	int Ned;
 
 	void setdx();
-	void integracao(int Ned, double dt);
-	void mapeamento(double x, double y, int* i, int* j);
-	double contato(double Kn, double Cn, int Ned);
+	void integracao( double dt);
+	int* mapeamento(double x, double y);
+	void contato();
 	
-	sistema (double L, double H);
+	sistema (double L, double H, double Kn, double Cn, int Ned);
 	~sistema();
 
 	void setmapa();
